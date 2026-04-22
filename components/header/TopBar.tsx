@@ -15,10 +15,8 @@ export default function TopBar() {
         <div className="bg-gray-100 dark:bg-background border-b border-gray-200 dark:border-white/20 text-xs text-black dark:text-white">
             <div className="container mx-auto px-4 lg:px-8 h-9 flex items-center justify-between gap-4">
 
-                {/* Left: Contacts — responsive */}
                 <div className="flex items-center gap-3 min-w-0 overflow-hidden">
 
-                    {/* Mobile: sirf email icon + truncated */}
                     <Link
                         href="mailto:connect@realcoresolutions.com"
                         className="flex sm:hidden items-center gap-1.5 min-w-0 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
@@ -27,7 +25,6 @@ export default function TopBar() {
                         <span className="truncate">connect@realcoresolutions.com</span>
                     </Link>
 
-                    {/* Tablet: email + phone */}
                     <Link
                         href="mailto:connect@realcoresolutions.com"
                         className="hidden sm:flex lg:hidden items-center gap-1.5 whitespace-nowrap hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
@@ -43,7 +40,6 @@ export default function TopBar() {
                         <span>+92 309 8882727</span>
                     </Link>
 
-                    {/* Desktop: sab contacts */}
                     {contacts.map(({ icon: Icon, label, href }) => (
                         <Link
                             key={href}
@@ -58,7 +54,7 @@ export default function TopBar() {
 
                 <div className="flex items-center gap-3 shrink-0">
                     <Link
-                        href="/support"
+                        href="https://erp.realcoresolutions.com/public/ticket/index.php?entity=1"
                         className="hidden sm:block whitespace-nowrap hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
                     >
                         Support
