@@ -4,14 +4,13 @@ import { motion } from "motion/react";
 import WorldMap from "@/components/ui/world-map";
 import { Check } from "lucide-react";
 
-// Pakistan → key client regions
 const MAP_DOTS = [
-  { start: { lat: 24.8607, lng: 67.0011 }, end: { lat: 51.5074, lng: -0.1278  } }, // Karachi → London
-  { start: { lat: 24.8607, lng: 67.0011 }, end: { lat: 25.2048, lng: 55.2708  } }, // Karachi → Dubai
-  { start: { lat: 24.8607, lng: 67.0011 }, end: { lat: 28.6139, lng: 77.2090  } }, // Karachi → New Delhi
-  { start: { lat: 24.8607, lng: 67.0011 }, end: { lat: 1.3521,  lng: 103.8198 } }, // Karachi → Singapore
-  { start: { lat: 24.8607, lng: 67.0011 }, end: { lat: 40.7128, lng: -74.0060 } }, // Karachi → New York
-  { start: { lat: 24.8607, lng: 67.0011 }, end: { lat: -33.8688, lng: 151.2093} }, // Karachi → Sydney
+  { start: { lat: 24.8607, lng: 67.0011 }, end: { lat: 51.5074, lng: -0.1278 } },
+  { start: { lat: 24.8607, lng: 67.0011 }, end: { lat: 25.2048, lng: 55.2708 } },
+  { start: { lat: 24.8607, lng: 67.0011 }, end: { lat: 28.6139, lng: 77.2090 } },
+  { start: { lat: 24.8607, lng: 67.0011 }, end: { lat: 1.3521, lng: 103.8198 } },
+  { start: { lat: 24.8607, lng: 67.0011 }, end: { lat: 40.7128, lng: -74.0060 } },
+  { start: { lat: 24.8607, lng: 67.0011 }, end: { lat: -33.8688, lng: 151.2093 } },
 ];
 
 const WHY_POINTS = [
@@ -78,10 +77,8 @@ export default function WorldMapSection() {
             </div>
           </div>
 
-          {/* RIGHT — scrollable why points */}
           <div className="py-24 space-y-10">
 
-            {/* Mobile heading (shown only on mobile) */}
             <div className="lg:hidden mb-4">
               <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2">
                 Global Reach

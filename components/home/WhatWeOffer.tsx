@@ -6,11 +6,11 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 const IMG = {
-  erp:    "/images/offers/growtherp.png",
-  rems:   "/images/offers/realestate.png",
+  erp: "/images/offers/growtherp.png",
+  rems: "/images/offers/realestate.png",
   portal: "/images/offers/customerportalverticle.png",
-  pos:    "/images/offers/POS.png",
-  sms:    "/images/offers/sms.png",
+  pos: "/images/offers/POS.png",
+  sms: "/images/offers/sms.png",
   custom: "/images/offers/dev.png",
 };
 

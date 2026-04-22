@@ -1,5 +1,5 @@
 .loader-wrapper {
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -14,12 +14,11 @@
 .loader {
   font-weight: bold;
   font-family: monospace;
-  font-size: 62px; 
+  font-size: 62px;
 
-  background: radial-gradient(circle closest-side, #000 94%, transparent)
-    right / calc(200% - 1em) 100%;
+  background: radial-gradient(circle closest-side, #000 94%, transparent) right / calc(200% - 1em) 100%;
 
-  animation: l24 1.5s infinite alternate ease-in-out; 
+  animation: l24 1.5s infinite alternate ease-in-out;
 }
 
 .loader::before {
