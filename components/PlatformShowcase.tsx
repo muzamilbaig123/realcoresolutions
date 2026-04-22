@@ -26,7 +26,6 @@ export default function PlatformShowcase() {
           </div>
         }
       >
-        {/* Replace with your actual demo video or screenshot */}
         <video
           autoPlay
           muted

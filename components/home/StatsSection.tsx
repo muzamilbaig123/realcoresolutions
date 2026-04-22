@@ -5,9 +5,9 @@ import { useInView } from "motion/react";
 
 const STATS = [
   { value: 500, suffix: "+", label: "Growing businesses\nthat trust us" },
-  { value: 15,  suffix: "+", label: "Industries served\nacross the globe" },
-  { value: 98,  suffix: "%", label: "Client retention\nrate year on year" },
-  { value: 50,  suffix: "+", label: "Successfully completed\nprojects" },
+  { value: 15, suffix: "+", label: "Industries served\nacross the globe" },
+  { value: 98, suffix: "%", label: "Client retention\nrate year on year" },
+  { value: 50, suffix: "+", label: "Successfully completed\nprojects" },
 ];
 
 function Counter({ target, suffix }: { target: number; suffix: string }) {

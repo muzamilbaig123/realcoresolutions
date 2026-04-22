@@ -45,7 +45,6 @@ export default function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps)
   const labelBg =
     theme === "dark" ? "rgba(6,13,31,0.95)" : "rgba(255,255,255,0.95)";
 
-  // 🔥 Smart label positioning
   const getLabelPosition = (x: number, y: number, textLength: number) => {
     let offsetX = 12;
     let offsetY = -18;
@@ -107,7 +106,6 @@ export default function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps)
           );
         })}
 
-        {/* Points + Labels */}
         {dots.map((dot, i) => {
           const pts = [
             { pos: projectPoint(dot.start.lat, dot.start.lng), label: dot.start.label },
@@ -144,7 +142,7 @@ export default function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps)
                   <text
                     x={labelPos.x}
                     y={labelPos.y + 4}
-                    fontSize="16"   
+                    fontSize="16"
                     fontWeight="700"
                     fill={labelColor}
                     letterSpacing="0.6"

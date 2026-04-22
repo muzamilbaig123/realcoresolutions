@@ -8,79 +8,93 @@ import darkLogo from "@/public/images/darklogo.png";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-
 const footerLinks = {
-  Pages: [
-    { label: "All Products", href: "/products" },
-    { label: "Studio", href: "/studio" },
-    { label: "Clients", href: "/clients" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Blog", href: "/blog" },
+  Products: [
+    { label: "Growth ERP & CRM", href: "/products/erp-crm" },
+    { label: "R-Core Data Suite (REMS)", href: "/products/rems" },
+    { label: "Point of Sale (POS)", href: "/products/pos" },
+    { label: "Customer Portal", href: "/products/portal" },
+    { label: "SMS & WhatsApp Solutions", href: "/products/sms" },
+    { label: "Email Solutions Suite", href: "/products/email" },
   ],
-  Socials: [
-    { label: "Facebook", href: "#" },
-    { label: "Instagram", href: "#" },
-    { label: "Twitter", href: "#" },
-    { label: "LinkedIn", href: "#" },
+  Company: [
+    { label: "About Us", href: "/about" },
+    { label: "Industries We Serve", href: "/industries" },
+    { label: "Case Studies", href: "/case-studies" },
+    { label: "Careers", href: "/careers" },
+    { label: "Blog", href: "/blog" },
+    { label: "Contact Us", href: "/contact" },
+  ],
+  Support: [
+    { label: "Request a Demo", href: "/request-demo" },
+    { label: "Free Consultation", href: "/contact" },
+    { label: "FAQs", href: "/faqs" },
+    { label: "Documentation", href: "/docs" },
+    { label: "Technology Partnerships", href: "/partners" },
+    { label: "Affiliate Program", href: "/affiliate" },
   ],
   Legal: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },
     { label: "Cookie Policy", href: "/cookies" },
-  ],
-  Register: [
-    { label: "Sign Up", href: "/signup" },
     { label: "Login", href: "/login" },
-    { label: "Forgot Password", href: "/forgot-password" },
+    { label: "Support Portal", href: "/support" },
   ],
 };
 
 export default function Footer() {
-
-
-  const { theme, resolvedTheme } = useTheme();
-
-
+  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
+  useEffect(() => { setMounted(true); }, []);
   if (!mounted) return null;
 
   const logo = resolvedTheme === "dark" ? darkLogo : lightLogo;
 
-
   return (
     <footer className="relative w-full overflow-hidden border-t border-border bg-background">
-      {/* Main footer */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-14">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-5">
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-3">
 
+      {/* Main footer */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-5">
+
+          <div className="sm:col-span-2 lg:col-span-1 flex flex-col items-center text-center sm:items-start sm:text-left">
+            <Link href="/" className="mb-4 inline-block">
               <Image
                 src={logo}
                 alt="RealCore Solutions"
                 width={160}
                 height={40}
-                className="h-14 w-auto"
+                className="h-12 w-auto"
                 priority
               />
             </Link>
-            <p className="text-xs text-muted-foreground leading-relaxed">
+            <p className="text-xs text-muted-foreground leading-relaxed max-w-[200px]">
+              Enterprise ERP, CRM &amp; communication solutions built to scale
+              your business from day one.
+            </p>
+            <p className="mt-4 text-xs text-muted-foreground">
               © {new Date().getFullYear()} RealCore Solutions.
               <br />
-              All rights reserved Design by Digitize Bird​.
-
+              All rights reserved.
+              <br />
+              Design by{" "}
+              <a
+                href="https://sms.digitizebird.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-foreground transition-colors"
+              >
+                Digitize Bird
+              </a>
             </p>
           </div>
 
-          {/* Link columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
+            <div
+              key={category}
+              className="flex flex-col items-center text-center sm:items-start sm:text-left"
+            >
               <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-foreground">
                 {category}
               </p>
@@ -98,12 +112,14 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+
         </div>
       </div>
 
       <p className="watermark-text px-6 pb-4 text-center text-[clamp(3rem,12vw,9rem)] font-bold leading-none tracking-tight select-text">
-        RealCoreSolutions.
+        RealCoreSolutions!
       </p>
+
     </footer>
   );
 }
