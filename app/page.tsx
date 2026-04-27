@@ -1,3 +1,4 @@
+import BlogSection from "@/components/home/BlogSection";
 import CTA from "@/components/home/CTA";
 import HeroParallax from "@/components/home/HeroSection";
 import StatsSection from "@/components/home/StatsSection";
@@ -10,7 +11,8 @@ import { createMetadata } from "@/lib/metadata";
 
 export const metadata = createMetadata({
   title: "RealCoreSolutions Enterprise ERP, CRM & Business Software",
-  description: "Accelerate your business growth with smart, scalable ERP, CRM and communication solutions. Trusted by 500+ businesses worldwide.",
+  description:
+    "Accelerate your business growth with smart, scalable ERP, CRM and communication solutions. Trusted by 500+ businesses worldwide.",
   path: "/",
 });
 
@@ -24,8 +26,8 @@ export default function Home() {
       <IndustryTabs />
       <PlatformShowcase />
       <Testimonials />
+      <BlogSection />
       <CTA />
     </>
   );
 }
-

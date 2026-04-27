@@ -7,8 +7,9 @@ import lightLogo from "@/public/images/lightlogo.png";
 import darkLogo from "@/public/images/darklogo.png";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import LoginDrawer from "@/components/header/LoginDrawer";
 
-const footerLinks = {
+const footerLinks: Record<string, { label: string; href: string }[]> = {
   Products: [
     { label: "Growth ERP & CRM", href: "/products/erp-crm" },
     { label: "R-Core Data Suite (REMS)", href: "/products/rems" },
@@ -27,7 +28,7 @@ const footerLinks = {
   ],
   Support: [
     { label: "Request a Demo", href: "/request-demo" },
-    { label: "Free Consultation", href: "/contact" },
+    { label: "Free Consultation", href: "/consultation" },
     { label: "FAQs", href: "/faqs" },
     { label: "Documentation", href: "/docs" },
     { label: "Technology Partnerships", href: "/partners" },
@@ -37,8 +38,10 @@ const footerLinks = {
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },
     { label: "Cookie Policy", href: "/cookies" },
-    { label: "Login", href: "/login" },
-    { label: "Support Portal", href: "/support" },
+    {
+      label: "Support Portal",
+      href: "https://erp.realcoresolutions.com/public/ticket/index.php?entity=1",
+    },
   ],
 };
 
@@ -46,18 +49,19 @@ export default function Footer() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   if (!mounted) return null;
 
   const logo = resolvedTheme === "dark" ? darkLogo : lightLogo;
 
   return (
     <footer className="relative w-full overflow-hidden border-t border-border bg-background">
-
       {/* Main footer */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-5">
-
+          {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1 flex flex-col items-center text-center sm:items-start sm:text-left">
             <Link href="/" className="mb-4 inline-block">
               <Image
@@ -90,6 +94,7 @@ export default function Footer() {
             </p>
           </div>
 
+          {/* Link columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div
               key={category}
@@ -109,17 +114,28 @@ export default function Footer() {
                     </Link>
                   </li>
                 ))}
+
+                {category === "Legal" && (
+                  <li>
+                    <LoginDrawer
+                      trigger={
+                        <button className="text-sm text-muted-foreground transition-colors duration-150 hover:text-foreground">
+                          Login
+                        </button>
+                      }
+                    />
+                  </li>
+                )}
               </ul>
             </div>
           ))}
-
         </div>
       </div>
 
+      {/* Watermark */}
       <p className="watermark-text px-6 pb-4 text-center text-[clamp(3rem,12vw,9rem)] font-bold leading-none tracking-tight select-text">
         RealCoreSolutions!
       </p>
-
     </footer>
   );
 }
