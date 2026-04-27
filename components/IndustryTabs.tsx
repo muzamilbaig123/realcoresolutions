@@ -2,6 +2,7 @@
 import { Tabs } from "@/components/ui/tabs";
 import { motion } from "motion/react";
 import Image from "next/image";
+import SectionHeading from "./Sectionheading";
 
 const TabCard = ({
   title,
@@ -110,40 +111,14 @@ export default function IndustryTabs() {
 
   return (
     <section className="py-20 px-4 bg-white dark:bg-neutral-950 mb-24">
-      {/* Section Header */}
-      <div className="text-center mb-10">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={VP}
-          transition={{ duration: 0.4 }}
-          className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400"
-        >
-          Industries We Serve
-        </motion.p>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={VP}
-          transition={{ duration: 0.45, delay: 0.08 }}
-          className="mx-auto mt-2 max-w-2xl text-4xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl"
-        >
-          Powering Every Sector One,{" "} <br /> Solution at a Time
-
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={VP}
-          transition={{ duration: 0.45, delay: 0.15 }}
-          className="mx-auto mt-4 max-w-xl text-base text-gray-500 dark:text-gray-400"
-        >
-          From real estate to healthcare tailored digital solutions that drive
-          growth, streamline operations, and deliver real results.
-        </motion.p>
-      </div>
+      
+      <SectionHeading
+        badge="Industries We Serve"
+        title="Powering Every Sector One,"
+        highlight=" Solution at a Time"
+        description="From real estate to healthcare tailored digital solutions that drive
+          growth, streamline operations, and deliver real results."
+      />
 
       {/* Tabs */}
       <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative flex flex-col max-w-7xl mx-auto w-full bg-red-7--00">

@@ -2,8 +2,12 @@
 
 import React, { useEffect, useState } from "react";
 import {
-  motion, useScroll, useTransform, useSpring,
-  MotionValue, AnimatePresence
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  MotionValue,
+  AnimatePresence,
 } from "motion/react";
 import Link from "next/link";
 
@@ -26,7 +30,10 @@ function FlipWord() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % FLIP_WORDS.length), 2200);
+    const id = setInterval(
+      () => setIndex((i) => (i + 1) % FLIP_WORDS.length),
+      2200,
+    );
     return () => clearInterval(id);
   }, []);
 
@@ -54,7 +61,6 @@ function FlipWord() {
 
 export const Header = () => (
   <div className="max-w-5xl relative mx-auto py-20 md:py-40 px-4 w-full -top-40 text-center">
-
     <motion.h1
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -62,8 +68,7 @@ export const Header = () => (
       className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight text-black dark:text-white"
     >
       Built to Scale! <br />
-      Powered by{" "}
-      <FlipWord />
+      Powered by <FlipWord />
     </motion.h1>
 
     <motion.p
@@ -91,7 +96,7 @@ export const Header = () => (
       </Link>
 
       <Link
-        href="/contact"
+        href="/consultation"
         className="inline-flex items-center justify-center rounded-md border border-white/80 hover:border-white/40 bg-black text-white dark:bg-white dark:text-black text-sm font-semibold px-8 h-11 sm:w-auto transition-colors duration-200"
       >
         Free Consultation
@@ -134,16 +139,37 @@ export const HeroParallaxComp = ({ products }: { products: Product[] }) => {
   const thirdRow = products.slice(10, 15);
 
   const ref = React.useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
 
   const spring = { stiffness: 300, damping: 30, bounce: 100 };
 
-  const translateX = useSpring(useTransform(scrollYProgress, [0, 1], [0, 1000]), spring);
-  const translateXReverse = useSpring(useTransform(scrollYProgress, [0, 1], [0, -1000]), spring);
-  const rotateX = useSpring(useTransform(scrollYProgress, [0, 0.2], [15, 0]), spring);
-  const opacity = useSpring(useTransform(scrollYProgress, [0, 0.2], [0.2, 1]), spring);
-  const rotateZ = useSpring(useTransform(scrollYProgress, [0, 0.2], [20, 0]), spring);
-  const translateY = useSpring(useTransform(scrollYProgress, [0, 0.2], [-700, 500]), spring);
+  const translateX = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, 1000]),
+    spring,
+  );
+  const translateXReverse = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, -1000]),
+    spring,
+  );
+  const rotateX = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [15, 0]),
+    spring,
+  );
+  const opacity = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
+    spring,
+  );
+  const rotateZ = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [20, 0]),
+    spring,
+  );
+  const translateY = useSpring(
+    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    spring,
+  );
 
   return (
     <div
@@ -154,15 +180,25 @@ export const HeroParallaxComp = ({ products }: { products: Product[] }) => {
 
       <motion.div style={{ rotateX, rotateZ, translateY, opacity }}>
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-          {firstRow.map((p) => <ProductCard key={p.title} product={p} translate={translateX} />)}
+          {firstRow.map((p) => (
+            <ProductCard key={p.title} product={p} translate={translateX} />
+          ))}
         </motion.div>
 
         <motion.div className="flex flex-row mb-20 space-x-20">
-          {secondRow.map((p) => <ProductCard key={p.title} product={p} translate={translateXReverse} />)}
+          {secondRow.map((p) => (
+            <ProductCard
+              key={p.title}
+              product={p}
+              translate={translateXReverse}
+            />
+          ))}
         </motion.div>
 
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((p) => <ProductCard key={p.title} product={p} translate={translateX} />)}
+          {thirdRow.map((p) => (
+            <ProductCard key={p.title} product={p} translate={translateX} />
+          ))}
         </motion.div>
       </motion.div>
     </div>
