@@ -1,5 +1,4 @@
 import { createMetadata } from "@/lib/metadata";
-import { Shield } from "lucide-react";
 
 export const metadata = createMetadata({
   title: "Privacy Policy",
@@ -80,14 +79,6 @@ export default function PrivacyPage() {
       {/* Hero */}
       <div className="border-b border-gray-100 dark:border-white/[0.06] bg-gray-50 dark:bg-[#03070f] py-20">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-500/10">
-              <Shield size={18} className="text-blue-600 dark:text-blue-400" />
-            </div>
-            <span className="text-xs font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">
-              Legal
-            </span>
-          </div>
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl mb-4">
             Privacy Policy
           </h1>
