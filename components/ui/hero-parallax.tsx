@@ -85,12 +85,11 @@ export const Header = () => (
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, delay: 0.32, ease: "easeOut" }}
-      className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8"
+      className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8 relative z-10"
     >
-      {/* Primary CTA */}
       <Link
         href="/request-demo"
-        className="inline-flex items-center justify-center rounded-md bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-8 h-11  sm:w-auto transition-colors duration-200"
+        className="inline-flex items-center justify-center rounded-md bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold px-8 h-11 sm:w-auto transition-colors duration-200"
       >
         Request a Demo
       </Link>

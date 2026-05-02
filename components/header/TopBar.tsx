@@ -16,7 +16,7 @@ const contacts = [
 
 export default function TopBar() {
   return (
-    <div className="bg-gray-100 dark:bg-background border-b border-gray-200 dark:border-white/20 text-xs text-black dark:text-white">
+    <div className="bg-transparent border-b border-gray-200 dark:border-white/20 text-xs text-black dark:text-white">
       <div className="container mx-auto px-4 lg:px-8 h-9 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3 min-w-0 overflow-hidden">
           <Link

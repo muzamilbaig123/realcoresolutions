@@ -1,4 +1,4 @@
-const STRAPI = process.env.NEXT_PUBLIC_STRAPI_URL ?? "http://localhost:1337";
+const STRAPI = (process.env.NEXT_PUBLIC_STRAPI_URL ?? "http://localhost:1337").replace(/\/$/, "");
 
 export type StrapiImage = {
   url?: string;
@@ -40,6 +40,15 @@ export type PaginationMeta = {
   pageCount: number;
   total: number;
 };
+
+export interface Faq {
+  id: number;
+  documentId: string;
+  Questions: string;
+  Answers: string;
+  category: string;
+  order: number;
+}
 
 export const buildUrl = (path?: string | null): string | null => {
   if (!path) return null;
@@ -120,5 +129,34 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
     return data?.[0] ?? null;
   } catch {
     return null;
+  }
+}
+
+export async function getFaqs(
+  page = 1,
+  pageSize = 18,
+): Promise<{
+  faqs: Faq[];
+  meta: PaginationMeta;
+}> {
+  try {
+    const res = await fetch(
+      `${STRAPI}/api/faq?sort=order&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
+      { next: { revalidate: 60 } },
+    );
+    if (!res.ok)
+      return { faqs: [], meta: { page: 1, pageSize, pageCount: 1, total: 0 } };
+    const json = await res.json();
+    return {
+      faqs: json.data ?? [],
+      meta: json.meta?.pagination ?? {
+        page: 1,
+        pageSize,
+        pageCount: 1,
+        total: 0,
+      },
+    };
+  } catch {
+    return { faqs: [], meta: { page: 1, pageSize, pageCount: 1, total: 0 } };
   }
 }

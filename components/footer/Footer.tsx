@@ -8,6 +8,7 @@ import darkLogo from "@/public/images/darklogo.png";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import LoginDrawer from "@/components/header/LoginDrawer";
+import BigTextFootBottom from "./FooterBigText";
 
 const footerLinks: Record<string, { label: string; href: string }[]> = {
   Products: [
@@ -133,9 +134,10 @@ export default function Footer() {
       </div>
 
       {/* Watermark */}
-      <p className="watermark-text px-6 pb-4 text-center text-[clamp(3rem,12vw,9rem)] font-bold leading-none tracking-tight select-text">
+      {/* <p className="watermark-text px-6 pb-4 text-center text-[clamp(3rem,12vw,9rem)] font-bold leading-none tracking-tight select-text">
         RealCoreSolutions!
-      </p>
+      </p> */}
+      <BigTextFootBottom />
     </footer>
   );
 }
